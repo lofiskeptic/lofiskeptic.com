@@ -1,12 +1,9 @@
 import React from "react"
 import { graphql } from 'gatsby'
+import moment from 'moment'
 
 import Layout from "./layout"
 import SEO from "./seo"
-
-/*
-
- */
 
 export default function Template({
   data,
@@ -14,16 +11,13 @@ export default function Template({
   const { sitePage: { context } } = data
   return (
     <Layout>
-      <div className="blog-post-container">
-        <SEO title={context.frontmatter.title} description={context.excerpt} />
-        <div className="blog-post">
-          <h1>{context.frontmatter.title}</h1>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: context.html }}
-          />
-        </div>
-      </div>
+      <SEO title={context.frontmatter.title} description={context.excerpt} />
+      <h1>{context.frontmatter.title}</h1>
+      <small>{moment(context.date).format('MMMM Do YYYY, h:mm:ss a')}</small>
+      <div
+        className="blog-post-content"
+        dangerouslySetInnerHTML={{ __html: context.html }}
+      />
     </Layout>
   )
 }

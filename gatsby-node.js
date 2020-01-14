@@ -3,7 +3,7 @@ const { omit } = require('ramda')
 
 const pathWithoutExt = fullpath => path.format(omit(['ext', 'base'], path.parse(fullpath)))
 
-exports.createPages = async ({ actions: {createPage}, graphql }) => {
+exports.createPages = async ({ actions: {createPage}, graphql, reporter }) => {
   const blogPostTemplate = path.resolve(`src/components/page-template.js`)
   const result = await graphql(`
     {
@@ -22,6 +22,7 @@ exports.createPages = async ({ actions: {createPage}, graphql }) => {
             parent {
               id
               ... on File {
+                modifiedTime
                 relativePath
               }
             }
@@ -41,6 +42,7 @@ exports.createPages = async ({ actions: {createPage}, graphql }) => {
       component: blogPostTemplate,
       context: {
         blog: true,
+        date: node.frontmatter.date || node.parent.modifiedTime,
         excerpt: node.frontmatter.description || node.excerpt,
         frontmatter: node.frontmatter,
         html: node.html

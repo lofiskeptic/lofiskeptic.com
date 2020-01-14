@@ -1,7 +1,13 @@
 ---
-path: "/test-page"
-date: 2017-07-12T17:12:33.962Z
-title: "What Goes On"
+path: "/first-blog-post"
+title: "First Blog Post"
+date: 2020-01-14T02:57:12-08:00
 ---
 
-Yaay a page.
+This is a sample page.
+
+```
+graph TD
+A --> B
+B --> C
+```
