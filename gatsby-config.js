@@ -6,9 +6,21 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: "pages",
+      },
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
         plugins: [
           'gatsby-remark-mermaid'
         ]
