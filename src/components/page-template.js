@@ -26,10 +26,10 @@ export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     sitePage(path: { eq: $path }) {
       context {
+        date
         excerpt
         frontmatter {
           title
-          date
         }
         html
       }
