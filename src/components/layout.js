@@ -14,8 +14,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import Header from "./header"
+import Footer from "./footer"
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './layout.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,21 +32,21 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Container>
+      <header>
         <Header siteTitle={data.site.siteMetadata.title} />
+      </header>
+      <Container>
         <Row>
           <Col>
             <main>
               {children}
             </main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
           </Col>
         </Row>
       </Container>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }

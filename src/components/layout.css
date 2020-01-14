@@ -1,0 +1,5 @@
+blockquote {
+  border-left: solid gray;
+  font-style: italic;
+  padding-left: 0.5em;
+}
