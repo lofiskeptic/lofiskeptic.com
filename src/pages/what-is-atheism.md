@@ -65,6 +65,8 @@ In the movie "[The Sting]", two con men cooperate to take on a rich and dangerou
 
 What I'm asking, when I ask about payoff, is this: "is this what's happening to me?" And the only sure way I know of to avoid it is to find out, for sure, that a payoff is even possible. The usual way I would find that out is *evidence*: some kind of repeatable (but not necessarily tangible) test I can perform on the world which gives me an answer in which I'm confident.
 
+Why do I think this is a risk? For starters, some Christians will outright tell me the race is fixed. "These other religions are false," some will say. "You're not worshipping other gods, you're really worshipping Satan and his demons", others claim. Adherents of other horses disagree, of course. And of course, "God is real and is definitely the victor" is the premise of Christian belief. So if we're introducing doubt about what's at stake here, I'm happy to consider the whole thing a risk.
+
 So what is atheism? **It's the position that no horse is a safe bet right now.**
 
 Convincing me to bet is the job of the evangelist. Defending the premise of the bet is the job of the apologist, which we'll go into in another post.
