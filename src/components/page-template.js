@@ -1,21 +1,26 @@
 import React from "react"
+import { graphql } from 'gatsby'
 
 import Layout from "./layout"
 import SEO from "./seo"
 
+/*
+
+ */
+
 export default function Template({
   data,
 }) {
-  const { markdownRemark: post } = data
+  const { sitePage: { context } } = data
   return (
     <Layout>
       <div className="blog-post-container">
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <SEO title={context.frontmatter.title} description={context.excerpt} />
         <div className="blog-post">
-          <h1>{post.frontmatter.title}</h1>
+          <h1>{context.frontmatter.title}</h1>
           <div
             className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: context.html }}
           />
         </div>
       </div>
@@ -25,13 +30,14 @@ export default function Template({
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      excerpt(pruneLength: 250)
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
+    sitePage(path: { eq: $path }) {
+      context {
+        excerpt
+        frontmatter {
+          title
+          date
+        }
+        html
       }
     }
   }

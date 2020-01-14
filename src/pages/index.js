@@ -1,41 +1,43 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import Card from "react-bootstrap/Card"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function Index({ data }) {
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges } = data.allSitePage
   return (
     <Layout>
       <SEO title="Home" />
-      {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
-        .map(({ node: post }) => {
-          return (
-            <div className="blog-post-preview" key={post.id}>
-              <h1>
-                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-              </h1>
-              <h2>{post.frontmatter.date}</h2>
-              <p>{post.excerpt}</p>
-            </div>
-          )
-        })}
+      {edges
+        .map(({ node: {path, context: {excerpt, frontmatter: {title}}} }) => (
+          <Card>
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>
+              {excerpt}
+            </Card.Text>
+            <Link to={path}>Read more &raquo;</Link>
+          </Card.Body>
+        </Card>
+        ))}
     </Layout>
   )
 }
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allSitePage(filter: {context: {blog: {eq: true}}}, sort: {fields: context___frontmatter___date, order: DESC}) {
       edges {
         node {
-          excerpt(pruneLength: 250)
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            path
+          path
+          context {
+            excerpt
+            frontmatter {
+              title
+              date
+            }
           }
         }
       }
