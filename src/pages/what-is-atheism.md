@@ -2,6 +2,7 @@
 path: "/what-is-atheism"
 title: "What is Atheism?"
 date: 2020-01-14T02:57:12-08:00
+version: 1.2
 ---
 
 The Stanford Encyclopedia of Philosophy defines [Atheism and Agnosticism] like this:
@@ -20,15 +21,21 @@ I am not a philosopher. For purposes of content on this site, I use terms like "
 
 ```mermaid
 graph TD
-  A[Atheist] 
-  N[Antitheist.]
-  T[Theist ]
+  StrongAtheism[Strong Atheism]
+  WeakAtheism[Weak Atheism or Agnosticism]
+  P[Do you understand the definition of god?]
   Q[Could you believe there is a god?]
-  R[Do you believe there's a god?]
+  R[Do you currently believe there's a god?]
+  P --> |No| Ignosticism
+  P --> |Yes| Q
   Q --> |Yes| R
-  Q --> |No| N
-  R --> |Yes| T
-  R --> |No| A
+  Q --> |No| StrongAtheism
+  R --> |Yes| Theism
+  R --> |No| WeakAtheism
+  click Ignosticism https://en.wikipedia.org/wiki/Ignosticism
+  click StrongAtheism https://religions.wiki/index.php/Atheist_vs._agnostic
+  click Theism https://religions.wiki/index.php/Theism
+  click WeakAtheism https://religions.wiki/index.php/Atheist_vs._agnostic
 ```
 
 ### The horse race
