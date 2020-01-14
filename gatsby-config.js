@@ -1,3 +1,16 @@
+// Placed here for eventual reuse by gatsby-mdx
+const remarkPlugins = [
+  `gatsby-remark-mermaid`,
+  `gatsby-remark-smartypants`,
+  {
+    resolve: `gatsby-remark-external-links`,
+    options: {
+      target: `_blank`,
+      rel: `nofollow`
+    }
+  }
+]
+
 module.exports = {
   siteMetadata: {
     title: `Lo-Fi Skeptic`,
@@ -29,9 +42,7 @@ module.exports = {
         footnotes: true,
         pedantic: true,
         gfm: true,
-        plugins: [
-          'gatsby-remark-mermaid'
-        ]
+        plugins: remarkPlugins
       }
     },
     `gatsby-transformer-sharp`,
