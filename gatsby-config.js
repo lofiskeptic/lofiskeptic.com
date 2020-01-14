@@ -3,6 +3,15 @@ const remarkPlugins = [
   `gatsby-remark-mermaid`,
   `gatsby-remark-smartypants`,
   {
+    resolve: `@raae/gatsby-remark-oembed`,
+    options: {
+      usePrefix: false,
+      providers: {
+        exclude: ["Reddit"]
+      }
+    }
+  },
+  {
     resolve: `gatsby-remark-external-links`,
     options: {
       target: `_blank`,
@@ -20,6 +29,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

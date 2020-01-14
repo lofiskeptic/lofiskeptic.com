@@ -1,2 +1,10 @@
-[ ] React-Bootstrap
+[X] React-Bootstrap
 [ ] Pagination for blog front page
+
+Plugins
+[ ] https://www.gatsbyjs.org/packages/gatsby-remark-copy-linked-files/?=gatsby-remark-
+[ ] https://www.gatsbyjs.org/packages/gatsby-remark-images/?=gatsby-remark-
+[ ] https://www.gatsbyjs.org/packages/gatsby-remark-reading-time/?=gatsby-remark-
+[X] https://www.gatsbyjs.org/packages/gatsby-remark-embedder/?=gatsby-remark-
+[X] https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter
+
