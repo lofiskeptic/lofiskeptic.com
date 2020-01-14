@@ -25,6 +25,7 @@ module.exports = {
     title: `Lo-Fi Skeptic`,
     description: `Laid-back skepticism and analogies for apologetics`,
     author: `@lofiskeptic`,
+    image: 'https://festive-heyrovsky-e5771f.netlify.com/lofiskeptic.png'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
