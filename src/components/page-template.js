@@ -13,7 +13,11 @@ export default function Template({
     <Layout>
       <SEO title={context.frontmatter.title} description={context.excerpt} />
       <h1>{context.frontmatter.title}</h1>
-      <small>{moment(context.date).format('MMMM Do YYYY, h:mm:ss a')}</small>
+      <small>
+        {moment(context.date).format('MMMM Do YYYY, h:mm:ss a')}
+        {' - '}
+        {context.readingTime}
+      </small>
       <div
         className="blog-post-content"
         dangerouslySetInnerHTML={{ __html: context.html }}
@@ -32,6 +36,7 @@ export const pageQuery = graphql`
           title
         }
         html
+        readingTime
       }
     }
   }

@@ -2,6 +2,7 @@
 const remarkPlugins = [
   `gatsby-remark-mermaid`,
   `gatsby-remark-smartypants`,
+  `gatsby-remark-reading-time`,
   {
     resolve: `@raae/gatsby-remark-oembed`,
     options: {

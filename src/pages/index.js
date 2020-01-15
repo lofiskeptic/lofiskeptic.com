@@ -20,15 +20,19 @@ export default function Index({ data }) {
         <Row>
           <Col sm={6}>
             {edges
-              .map(({ node: {path, context: {date, excerpt, frontmatter: {title}}} }) => (
+              .map(({ node: {path, context: {date, excerpt, frontmatter: {title}, readingTime}} }) => (
                 <Card border="light">
                   <Card.Body>
                     <Card.Title>
                       <Link style={{"color": "inherit"}} to={path}>{title}</Link>
-                      <br />
-                      <small>{moment(date).format('MMMM Do YYYY, h:mm:ss a')}</small>
                     </Card.Title>
                     <Card.Text>
+                      <small>
+                        {moment(date).format('MMMM Do YYYY, h:mm:ss a')}
+                        {' - '}
+                        {readingTime}
+                      </small>
+                      <br />
                       {excerpt}
                     </Card.Text>
                   </Card.Body>
@@ -55,6 +59,7 @@ export const pageQuery = graphql`
             frontmatter {
               title
             }
+            readingTime
           }
         }
       }

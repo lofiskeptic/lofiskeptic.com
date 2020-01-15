@@ -13,6 +13,11 @@ exports.createPages = async ({ actions: {createPage}, graphql, reporter }) => {
         edges {
           node {
             excerpt(pruneLength: 250)
+            fields {
+              readingTime {
+                text
+              }
+            }
             frontmatter {
               title
               path
@@ -46,7 +51,8 @@ exports.createPages = async ({ actions: {createPage}, graphql, reporter }) => {
         date: node.frontmatter.date || node.parent.modifiedTime,
         excerpt: node.frontmatter.description || node.excerpt,
         frontmatter: node.frontmatter,
-        html: node.html
+        html: node.html,
+        readingTime: node.fields.readingTime.text
       },
     })
   })
