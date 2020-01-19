@@ -44,8 +44,10 @@ module "acm_request_certificate" {
   source                            = "git::https://github.com/cloudposse/terraform-aws-acm-request-certificate.git?ref=tags/0.4.0"
   domain_name                       = var.site_hostname
   process_domain_validation_options = true
+  wait_for_certificate_issued       = true
   ttl                               = "300"
   subject_alternative_names         = ["*.${var.site_hostname}"]
+  zone_name                         = var.site_hostname
 }
 
 module "cdn" {
